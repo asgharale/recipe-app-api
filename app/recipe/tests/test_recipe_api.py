@@ -403,7 +403,7 @@ class PrivateRecipeAPITest(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(recipe.ingredients.all().count(), 0)
-    
+
     def test_filter_by_tags(self):
         """Test filtering recipes by tags."""
         r1 = create_recipe(user=self.user, title='Thai food 1')
@@ -423,7 +423,7 @@ class PrivateRecipeAPITest(TestCase):
         self.assertIn(s1.data, res.data)
         self.assertIn(s2.data, res.data)
         self.assertNotIn(s3.data, res.data)
-    
+
     def test_filter_by_ingredients(self):
         """Test recipes filter by ingredients."""
         r1 = create_recipe(user=self.user, title='Thai food 1')
@@ -443,6 +443,7 @@ class PrivateRecipeAPITest(TestCase):
         self.assertIn(s1.data, res.data)
         self.assertIn(s2.data, res.data)
         self.assertNotIn(s3.data, res.data)
+
 
 class ImageUploadTests(TestCase):
     """Test for the image upload API."""
